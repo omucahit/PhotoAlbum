@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Album Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="controls">
+        <div class="page-controls">
+            <button id="prevPage">Previous Page</button>
+            <select id="pageSelector"></select>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPage">Next Page</button>
+        </div>
+        <div class="export-controls">
+            <button id="saveChanges" style="display: none;">Save Changes</button>
+            <select id="paperSize">
+                <option value="a4">A4</option>
+                <option value="letter">Letter</option>
+            </select>
+            <select id="orientation">
+                <option value="portrait">Portrait</option>
+                <option value="landscape">Landscape</option>
+            </select>
+            <select id="photosPerPage">
+                <option value="1">1 photo per page</option>
+                <option value="2">2 photos per page</option>
+                <option value="4" selected>4 photos per page</option>
+                <option value="6">6 photos per page</option>
+            </select>
+            <button id="generatePDF">Generate PDF</button>
+            <div id="pdfProgress" class="pdf-progress" style="display: none;">
+                Generating PDF... <span id="pageProgress"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="pages" class="pages">
+        <div id="currentPage" class="photo-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
